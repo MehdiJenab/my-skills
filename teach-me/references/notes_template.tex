@@ -1,0 +1,172 @@
+\documentclass[11pt, a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage{physics}
+\usepackage{booktabs}
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{fancyhdr}
+\usepackage{enumitem}
+\usepackage{tcolorbox}
+\usepackage{tikz}
+\usepackage{graphicx}
+\usepackage{float}
+
+\usetikzlibrary{arrows.meta, positioning, shapes.geometric, calc}
+
+% --- Colors ---
+\definecolor{noteblue}{HTML}{2563EB}
+\definecolor{noteteal}{HTML}{0D9488}
+\definecolor{notegray}{HTML}{6B7280}
+\definecolor{lightyellow}{HTML}{FEF9C3}
+
+% --- Header / footer ---
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\textcolor{notegray}{\small Teaching Notes}}
+\fancyhead[R]{\textcolor{notegray}{\small \today}}
+\fancyfoot[C]{\textcolor{notegray}{\small \thepage}}
+\renewcommand{\headrulewidth}{0.4pt}
+
+% --- Hyperref ---
+\hypersetup{
+  colorlinks=true,
+  linkcolor=noteblue,
+  urlcolor=noteteal,
+  citecolor=notegray
+}
+
+% --- Custom environments ---
+\newtcolorbox{keyinsight}{
+  colback=noteblue!5,
+  colframe=noteblue!50,
+  title={\textbf{Key Insight}},
+  fonttitle=\small,
+  boxrule=0.5pt,
+  arc=2pt
+}
+
+\newtcolorbox{usernote}{
+  colback=noteteal!5,
+  colframe=noteteal!50,
+  title={\textbf{My Note}},
+  fonttitle=\small,
+  boxrule=0.5pt,
+  arc=2pt
+}
+
+\newtcolorbox{warningbox}{
+  colback=lightyellow,
+  colframe=orange!60,
+  title={\textbf{Watch Out}},
+  fonttitle=\small,
+  boxrule=0.5pt,
+  arc=2pt
+}
+
+% --- Compact lists ---
+\setlist[itemize]{noitemsep, topsep=2pt}
+\setlist[enumerate]{noitemsep, topsep=2pt}
+
+% ============================================================
+%  FILL IN: replace TOPIC_OR_PAPER_TITLE with actual title
+% ============================================================
+\title{\textbf{Teaching Notes}\\[0.3em]
+       \large TOPIC\_OR\_PAPER\_TITLE}
+\author{}
+\date{\today}
+
+\begin{document}
+\maketitle
+\thispagestyle{fancy}
+
+% ============================================================
+%  GLOSSARY
+% ============================================================
+\section*{Glossary}
+\begin{tabular}{@{} l p{10cm} @{}}
+\toprule
+\textbf{Symbol / Term} & \textbf{Definition} \\
+\midrule
+% ADD ENTRIES: one row per symbol or term
+% $\hat{H}$ & Hamiltonian operator \\
+% VQE & Variational Quantum Eigensolver \\
+\bottomrule
+\end{tabular}
+
+\bigskip\hrule\bigskip
+
+% ============================================================
+%  TEACHING NOTES — one subsection per unit
+% ============================================================
+\section*{Teaching Notes}
+
+% APPEND subsections here as units are covered.
+%
+% Pattern for each unit:
+%
+% \subsection*{N. Unit Title}
+% \begin{keyinsight}
+%   One-sentence takeaway.
+% \end{keyinsight}
+%
+% Supporting notes, bullet points, equations, or figures.
+%
+% For embedded figures (matplotlib PNGs produced during session):
+% \begin{figure}[H]
+%   \centering
+%   \includegraphics[width=0.7\textwidth]{filename.png}
+%   \caption{Description.}
+% \end{figure}
+%
+% For inline TikZ diagrams:
+% \begin{center}
+% \begin{tikzpicture}[ ... ]
+%   ...
+% \end{tikzpicture}
+% \end{center}
+
+% ============================================================
+%  USER NOTES
+% ============================================================
+\section*{My Notes}
+
+% APPEND user-requested notes here.
+% Wrap each in:
+% \begin{usernote}
+%   User's note content.
+% \end{usernote}
+
+% ============================================================
+%  DISCUSSION SUMMARY — uncomment and fill at session end
+% ============================================================
+% \section*{Discussion Summary}
+%
+% \subsection*{Units Covered}
+% \begin{itemize}
+%   \item Unit 1: ... \checkmark
+%   \item Unit 2: ... \checkmark
+%   \item Unit 3: ... (skipped)
+% \end{itemize}
+%
+% \subsection*{Key Takeaways}
+% \begin{enumerate}
+%   \item ...
+%   \item ...
+%   \item ...
+% \end{enumerate}
+%
+% \subsection*{Side-Threads Explored}
+% \begin{itemize}
+%   \item ...
+% \end{itemize}
+%
+% \subsection*{Open Questions}
+% \begin{itemize}
+%   \item ...
+% \end{itemize}
+
+\end{document}
