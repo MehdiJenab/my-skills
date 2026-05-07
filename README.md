@@ -8,7 +8,10 @@ I keep this repo public so others can use these skills directly, fork and adapt 
 
 | Skill | What it does |
 |---|---|
-| [`teach-me/`](./teach-me) | Interactive teaching skill for papers and technical topics. Plans a curriculum, teaches in small chunks with structured visuals, tracks side-threads, accumulates LaTeX notes, and produces a final PDF. Two modes: **topic mode** (you name a subject) and **paper mode** (you upload a PDF). |
+| [`teach-me/`](./teach-me) | Interactive teaching skill for papers and technical topics. Plans a curriculum, teaches in small chunks with structured visuals, tracks side-threads, accumulates LaTeX notes, and produces a final PDF. Two modes: **topic mode** (name a subject) and **paper mode** (upload a PDF). |
+| [`python-project-setup/`](./python-project-setup) | Step-by-step bootstrap of a modern Python project: src-layout, `pyproject.toml`, ruff + mypy + pytest with **100% coverage enforced**, pre-commit hooks, Makefile, `noxfile.py` for multi-version testing, and per-project `.claude/`. Ships with ready-to-copy templates. |
+| [`cpp-project-setup/`](./cpp-project-setup) | Step-by-step bootstrap of a modern **C++23** project: CMake + presets, `clang-format`, `clang-tidy`, sanitizers (ASan/UBSan/TSan), unit tests via **Catch2 or GoogleTest** (skill asks the user), optional **vcpkg or Conan**, gcovr coverage with 100% line-floor, pre-commit hooks, and per-project `.claude/`. |
+| [`spec-driven-development/`](./spec-driven-development) | SDD workflow for building software with AI coding agents using specifications as the primary versioned artifact. Defines a spatial axis (constitution + theory + per-feature specs colocated with code) and a temporal axis (bootstrap → environment setup → feature loop). |
 
 More skills will be added here over time as I clean them up for general use.
 
@@ -22,14 +25,19 @@ This way you get updates with a `git pull`:
 
 ```bash
 git clone https://github.com/MehdiJenab/my-skills.git ~/src/my-skills
-ln -s ~/src/my-skills/teach-me ~/.claude/skills/teach-me
+
+# symlink whichever skills you want
+ln -s ~/src/my-skills/teach-me                 ~/.claude/skills/teach-me
+ln -s ~/src/my-skills/python-project-setup     ~/.claude/skills/python-project-setup
+ln -s ~/src/my-skills/cpp-project-setup        ~/.claude/skills/cpp-project-setup
+ln -s ~/src/my-skills/spec-driven-development  ~/.claude/skills/spec-driven-development
 ```
 
 ### Option 2 — copy the folder
 
 ```bash
 git clone https://github.com/MehdiJenab/my-skills.git /tmp/my-skills
-cp -r /tmp/my-skills/teach-me ~/.claude/skills/
+cp -r /tmp/my-skills/<skill-name> ~/.claude/skills/
 ```
 
 ### Verify
@@ -44,7 +52,14 @@ You should see the skill name and its trigger description.
 
 ## Using a skill
 
-Each skill defines its own trigger phrases in its `SKILL.md` description. For example, `teach-me` triggers on phrases like *"teach me X"*, *"walk me through this paper"*, or `/teach_me`. See each skill's `SKILL.md` for details.
+Each skill defines its own trigger phrases in its `SKILL.md` description. Examples:
+
+- `teach-me` triggers on *"teach me X"*, *"walk me through this paper"*, or `/teach_me`
+- `python-project-setup` triggers on *"start a new Python project"*, *"set up Python tooling"*, *"enforce TDD in Python"*
+- `cpp-project-setup` triggers on *"start a new C++ project"*, *"set up modern C++ tooling"*, *"configure clang-format / clang-tidy / sanitizers"*
+- `spec-driven-development` triggers on *"spec-driven development"*, *"SDD"*, *"specs-first"*, or asks about ADRs / constitution / feature specs
+
+See each skill's `SKILL.md` for full trigger phrases and the workflow it implements.
 
 ## Contributing
 
