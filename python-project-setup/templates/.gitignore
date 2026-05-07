@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.egg-info/
+dist/
+build/
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Tool caches
+.mypy_cache/
+.ruff_cache/
+.pytest_cache/
+.nox/
+.coverage
+htmlcov/
+
+# Editor
+.vscode/
+.idea/
+
+# Environment / secrets
+.env
+
+# Claude local settings (machine-specific)
+.claude/settings.local.json
+
+# Project outputs
+runs/

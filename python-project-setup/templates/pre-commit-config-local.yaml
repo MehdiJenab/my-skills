@@ -1,0 +1,23 @@
+# Option B: local venv (language: system) — hooks use tools from your .venv.
+# Single source of truth for versions. Best for solo projects.
+# Requires .venv to be active when committing.
+repos:
+  - repo: local
+    hooks:
+      - id: ruff-check
+        name: ruff check
+        language: system
+        entry: ruff check --fix
+        types: [python]
+
+      - id: ruff-format
+        name: ruff format
+        language: system
+        entry: ruff format
+        types: [python]
+
+      - id: mypy
+        name: mypy
+        language: system
+        entry: mypy src/
+        pass_filenames: false
