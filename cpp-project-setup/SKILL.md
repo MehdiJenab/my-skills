@@ -1,6 +1,30 @@
 ---
 name: cpp-project-setup
-description: "Step-by-step guide for bootstrapping a modern C++23 project from scratch: git init, CMake project layout with include/src/tests, CMakeLists.txt, CMakePresets.json, clang-format, clang-tidy, sanitizers (ASan/UBSan/TSan), unit tests via Catch2 or GoogleTest (asks the user) with 100% coverage enforcement, optional external dependencies via vcpkg or Conan, pre-commit hooks, TDD workflow, and per-project .claude/ directory with its own CLAUDE.md, permissions, agents, and MCP servers. Use this skill whenever the user asks how to start a new C++ project, set up modern C++ tooling, enforce TDD, configure clang-format / clang-tidy / sanitizers / vcpkg / Conan, structure a C++ codebase from zero, or set up Claude Code for a C++ project."
+description: >
+  Step-by-step guide (11 steps) for bootstrapping a modern C++23 project: CMake + presets,
+  strict warnings as errors, clang-format + clang-tidy, sanitizers (ASan/UBSan/TSan), unit
+  tests with 100% line coverage enforced, optional vcpkg or Conan, pre-commit hooks, Makefile,
+  and per-project .claude/. Asks two decisions before scaffolding: test framework and package
+  manager.
+  Trigger: user asks to start a new C++ project, set up CMake or CMakePresets.json, configure
+  clang-format/clang-tidy, add sanitizers, set up Catch2 or GoogleTest, manage dependencies
+  with vcpkg or Conan, structure a C++ codebase from zero, enforce TDD in C++, or set up
+  Claude Code for a C++ project.
+  Action: asks user (Catch2 vs GoogleTest; FetchContent vs vcpkg vs Conan), then walks through
+  11 steps: git init + .gitignore, compiler/standard selection (C++23 default, C++20 noted),
+  include/src/tests/cmake layout, CMakeLists.txt + ProjectWarnings.cmake, CMakePresets.json
+  (debug/release/asan/tsan/coverage presets), unit tests per chosen framework, optional
+  external deps section, clang-format + clang-tidy, pre-commit hooks, Makefile
+  (make check = format + tidy + test + asan + coverage), per-project .claude/.
+  Limitations: requires CMake ≥ 3.21, GCC ≥ 13 or Clang ≥ 17 for C++23; does not cover CUDA,
+  Meson, Bazel, embedded/bare-metal, or MSVC-primary workflows; coverage via gcovr; cannot mix
+  vcpkg and Conan in the same project.
+  Relationships: for Python projects use python-project-setup; run spec-driven-development
+  first to write the constitution before scaffolding; the naming-convention skill (if installed)
+  governs naming in code written under this scaffold.
+  Examples: "start a new C++ project" → asks Catch2 vs GTest, then full 11-step walkthrough;
+  "set up CMake presets with sanitizers" → jumps to Step 5; "add clang-tidy to my existing
+  CMake project" → jumps to Step 7; "set up vcpkg for my C++ project" → external deps section.
 ---
 
 # C++ Project Setup — Modern Toolchain & TDD

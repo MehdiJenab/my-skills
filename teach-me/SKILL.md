@@ -1,15 +1,26 @@
 ---
 name: teach-me
 description: >
-  Interactive teaching skill for papers and technical topics via guided discussion. Triggers
-  on "teach me", "walk me through", "explain this paper", "help me understand", "deep dive",
-  "/teach_me", or any phrasing implying a structured pedagogical walkthrough rather than a
-  quick answer. Two modes: (1) Topic mode — user names a subject (e.g., "teach me QEC"),
-  Claude plans a curriculum and teaches it; (2) Paper mode — user uploads a PDF, Claude reads
-  and teaches its content. Handles full walkthroughs and targeted section dives. Maintains
-  LaTeX notes with glossary, tracks discussion state and side-threads, produces a final PDF.
-  Do NOT use for simple factual questions or one-off summaries — only for extended interactive
-  teaching sessions where back-and-forth discussion is expected.
+  Interactive tutoring skill — plans a curriculum, teaches in structured chunks with visuals,
+  tracks side-threads, accumulates LaTeX notes with glossary, and produces a final PDF.
+  Two modes: topic mode (user names a subject) and paper mode (user uploads a PDF).
+  Trigger: "teach me X", "walk me through this paper", "explain this paper", "help me
+  understand", "deep dive into", "/teach_me", or any phrasing asking for a structured
+  multi-turn pedagogical walkthrough. Do NOT use for quick factual questions or one-off
+  summaries — only for extended interactive sessions with back-and-forth discussion.
+  Action: identifies mode → reads paper in full (paper mode) or plans from knowledge (topic
+  mode) → presents numbered teaching plan → waits for confirmation → teaches one unit per
+  turn with progress map + checkpoint question → appends to LaTeX notes after each unit →
+  compiles to PDF when user says done.
+  Limitations: requires multiple turns; PDF compilation needs pdflatex on PATH; paper mode
+  requires the PDF uploaded or a readable local path; not suitable for code walkthroughs or
+  debugging sessions.
+  Relationships: for quick explanations answer directly without this skill; for paper summaries
+  only use the pdf skill instead.
+  Examples: "teach me quantum error correction" → topic mode, 6-unit curriculum plan;
+  "walk me through this paper" (PDF attached) → paper mode, reads full paper then plans;
+  "explain only section 3 of this paper" → targeted section dive;
+  "deep dive into attention mechanisms" → topic mode with web search if topic is recent.
 ---
 
 # Teach Me — Interactive Teaching Skill

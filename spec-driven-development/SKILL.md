@@ -1,6 +1,31 @@
 ---
 name: spec-driven-development
-description: "Workflow for building software with AI coding agents using specifications as the primary versioned artifact. Operates on a spatial axis (constitution + theory + per-feature specs colocated with code) and a temporal axis (bootstrap the constitution → set up the environment → enter the feature loop). Use this skill when starting a new project that needs specs-first discipline, when reverse-engineering a constitution from an existing brownfield codebase, when deciding where to place architectural decisions / ADRs / feature plans, when planning a multi-agent or single-agent feature loop with clean branch boundaries, or whenever the user mentions spec-driven development, SDD, specs-first, or asks how to coordinate AI agents around written specifications. Adapted for scientific computing but applies to any agent-driven project."
+description: >
+  Workflow guide for building software with AI coding agents using specifications as the
+  primary versioned artifact. Defines where documents live (spatial axis) and the sequence
+  of work (temporal axis).
+  Trigger: user mentions spec-driven development, SDD, specs-first, asks how to structure a
+  project for AI agents, asks where to put ADRs or architectural decisions, asks how to plan
+  a feature with an agent, asks how to coordinate multiple agents, or is starting a new project
+  that needs disciplined human/agent division of labor.
+  Action: explains spatial axis (constitution/ + theory/ + features/ colocated with code) and
+  temporal axis — Phase 0: write 6 constitution docs (mission, tech-stack, architecture,
+  roadmap, code-standards, validation-contract) → Phase 1: repo + CLAUDE.md + CI setup →
+  Phase 2+: feature loop (clean slate, plan spec, implement, review+merge, replan). Provides
+  decision record template and feature spec template. Covers branching strategy
+  (feature/ → merge → replanning/ → merge → repeat).
+  Limitations: does not prescribe CI configuration — use cpp-project-setup or
+  python-project-setup for that; constitution documents must be written by the human;
+  theory/*.tex documents require LaTeX knowledge.
+  Relationships: use this skill before cpp-project-setup or python-project-setup — write the
+  constitution first, then scaffold the build; once the constitution exists use the init skill
+  to generate CLAUDE.md from the actual codebase; feature spec validation criteria pair
+  directly with TDD — write criteria in spec, write tests, then implement.
+  Examples: "how should I structure my project for AI agents?" → full spatial + temporal
+  walkthrough; "where do I put architectural decisions?" → feature-scoped ADRs in
+  features/<n>/NNN-*.md; "start a new project with SDD" → Phase 0 bootstrap of all 6
+  constitution docs; "I want to use SDD for my existing codebase" → brownfield path: agent
+  reverse-engineers constitution from existing code.
 ---
 
 # Spec-Driven Development for Scientific Computing

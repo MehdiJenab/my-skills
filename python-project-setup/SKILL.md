@@ -1,6 +1,26 @@
 ---
 name: python-project-setup
-description: "Step-by-step guide for bootstrapping a modern Python project from scratch: git init, virtual environment, src-layout, pyproject.toml, ruff, mypy, pytest with 100% coverage enforcement, pre-commit hooks, TDD workflow, and per-project .claude/ directory with its own CLAUDE.md, permissions, agents, and MCP servers. Use this skill whenever the user asks how to start a new Python project, set up Python tooling, enforce TDD, configure ruff/mypy/pytest, structure a Python codebase from zero, or set up Claude Code for a project."
+description: >
+  Step-by-step guide (9 steps) for bootstrapping a modern Python project with a complete
+  strict toolchain. Ships with ready-to-copy template files.
+  Trigger: user asks to start a new Python project, set up Python tooling from scratch,
+  configure ruff/mypy/pytest/pre-commit/nox, enforce TDD, structure a Python codebase, or
+  set up Claude Code for a Python project. Also trigger when an existing Python project is
+  missing tooling (no pyproject.toml, no pre-commit, no coverage config).
+  Action: walks through 9 numbered steps — skip to the relevant step if only part is needed:
+  (1) git init + .gitignore, (2) venv, (3) src-layout scaffold, (4) pyproject.toml with
+  ruff+mypy+pytest+coverage, (5) editable install, (6) pre-commit hooks (remote or local
+  options), (7) Makefile + noxfile.py for multi-version testing, (8) commit skeleton,
+  (9) per-project .claude/. Template files in templates/ are ready to copy.
+  Limitations: assumes Python ≥ 3.11; does not cover Django/Flask/FastAPI project structure,
+  data science notebook setups, or PyPI packaging; coverage fail_under=100 may need lowering
+  for legacy codebases.
+  Relationships: for C++ projects use cpp-project-setup; for projects using AI agents pair
+  with spec-driven-development first to write the constitution before scaffolding.
+  Examples: "start a new Python project" → full 9-step walkthrough from scratch;
+  "set up ruff and mypy for my project" → jumps to Step 4 (pyproject.toml);
+  "add pre-commit hooks to my existing Python project" → jumps to Step 6;
+  "how do I enforce 100% test coverage in Python" → Step 4 coverage config + Step 7 make coverage.
 ---
 
 # Python Project Setup — Modern Toolchain & TDD
